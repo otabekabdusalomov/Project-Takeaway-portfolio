@@ -1,0 +1,341 @@
+@import "other";
+.navbar {
+  position: fixed;
+  padding: 5vh 5vw;
+  top: 0;
+  left: 0;
+  height: 50px;
+  width: 100vw;
+  @include center(center, space-between);
+  z-index: 4;
+  transition: 0.5s;
+  &_logo {
+    @include center;
+    a {
+      transition: 0.5s;
+      @include center;
+      h2 {
+        font-weight: 500;
+      }
+      svg {
+        height: 40px;
+      }
+    }
+  }
+  ul {
+    @include center;
+    gap: 20px;
+    transition: 0.5s;
+    li {
+      a {
+        position: relative;
+        padding: 10px;
+        color: #555;
+        font-weight: 500;
+        transition: 0.5s;
+        &::before {
+          position: absolute;
+          content: "";
+          bottom: 0;
+          left: 0;
+          height: 3px;
+          width: 0;
+          background: var(--cl);
+          transition: 0.5s;
+        }
+        &.router-link-exact-active,
+        &:hover {
+          color: var(--cl);
+          &::before {
+            width: 100%;
+          }
+        }
+      }
+      button {
+        position: relative;
+        padding: 10px;
+        height: 40px;
+        width: 40px;
+        @include center;
+        color: #fff;
+        font-size: 1.25em;
+        font-weight: 500;
+        background: var(--cl);
+        border-radius: 5px;
+        cursor: pointer;
+        transition: 0.5s;
+        &:hover {
+          background: var(--gray-8);
+        }
+        span {
+          position: absolute;
+          top: 0;
+          right: 0;
+          transform: translate(50%, -25%);
+          height: 22px;
+          width: 22px;
+          border-radius: 50%;
+          color: #555;
+          font-size: 16px;
+          background: var(--gray-3);
+          @include center;
+        }
+      }
+    }
+  }
+
+  .close,
+  .bar {
+    display: none;
+  }
+}
+.navbar.active {
+  padding: 30px 5vw;
+  background: var(--gray-1);
+}
+
+.home {
+  padding: 0 5vw;
+  min-height: 100vh;
+  width: 100%;
+  gap: 20px;
+  @include center(center, space-around);
+  &_text {
+    width: 45%;
+    gap: 20px;
+    @include center(flex-start, center, column);
+    h2 {
+      font-weight: 400;
+      font-size: 54px;
+    }
+    h3 {
+      i {
+        color: var(--green-5);
+      }
+    }
+    h5 {
+      mark {
+        font-weight: 500;
+      }
+    }
+    p {
+      font-size: 18px;
+    }
+  }
+  img {
+    width: 40%;
+  }
+  &.products img {
+    width: 35%;
+  }
+}
+
+.section1 {
+  min-height: 100vh;
+  padding: 0 5vw;
+  gap: 1rem;
+  @include center(center, center, column);
+  h2 {
+    color: var(--cl);
+    font-size: 50px;
+    font-weight: 400;
+  }
+  ul {
+    gap: 100px;
+    @include center(space-around);
+    li {
+      padding: 10px;
+      width: calc(100% / 3);
+      @include center(center, center, column);
+      &:nth-child(2) {
+        position: relative;
+        &::before,
+        &::after {
+          content: "";
+          position: absolute;
+          top: 50%;
+          left: 0;
+          transform: translate(-100%, -50%);
+          width: 100px;
+          height: 2.5px;
+          opacity: 0.5;
+          border-radius: 5px;
+          background: var(--cl);
+        }
+        &::after {
+          left: auto;
+          right: 0;
+          transform: translate(100%, -50%);
+        }
+      }
+      img {
+        width: 100%;
+      }
+      p {
+        text-align: center;
+      }
+    }
+  }
+}
+
+.menu {
+  min-height: 100vh;
+  padding: 50px 5vw;
+  gap: 20px;
+  @include center(center, center, column);
+  h2 {
+    color: var(--cl);
+    font-size: 50px;
+    font-weight: 400;
+  }
+  p {
+    font-size: 18px;
+  }
+  &_sections {
+    margin: 10px 0;
+    gap: 20px;
+    @include center;
+    span {
+      width: 100px;
+      padding: 5px 15px;
+      border-radius: 4px;
+      color: var(--cl);
+      box-shadow: 0 0 0 2px var(--cl);
+      transition: 0.5s;
+      @include center;
+      &:nth-child(1),
+      &:hover {
+        color: #fff;
+        background: var(--cl);
+      }
+    }
+  }
+  ul {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 1fr 1fr;
+    li {
+      padding: 10px;
+      box-shadow: 0 0 1px 0.5px var(--cl);
+      border-radius: 5px;
+      @include center;
+      gap: 10px;
+      .content {
+        gap: 10px;
+        @include center(flex-start, center, column);
+        span {
+          width: 100%;
+          gap: 10px;
+          @include center(center, flex-start);
+          &:first-child {
+            @include center(center, space-between);
+            h3:last-child {
+              color: var(--cl);
+            }
+          }
+          h3 {
+            font-weight: 500;
+          }
+          input {
+            padding: 5px;
+            width: 55px;
+            text-align: center;
+            box-shadow: 0 0 0 1px #000;
+            border-radius: 4px;
+          }
+        }
+        p {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}
+
+.support {
+  padding: 0 5vw;
+  min-height: 100vh;
+  width: 100%;
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(2, calc(100% / 2));
+  grid-template-rows: 1fr;
+  img {
+    width: 100%;
+  }
+  &_content {
+    background: url(../assets/sec5-bg.png) top/contain no-repeat;
+    overflow: hidden;
+    @include center(center, center, column);
+    border-radius: 4px;
+    h2 {
+      color: #fff;
+      font-size: 50px;
+      font-weight: 500;
+      text-align: center;
+      mark {
+        color: #1b9097;
+      }
+    }
+    .btn {
+      color: var(--cl);
+      background: #fff;
+    }
+  }
+}
+
+.footer {
+  padding: 5vh 5vw;
+  gap: 50px;
+  background: url(../assets/footer.png) center/cover no-repeat;
+  @include center(center, center, column);
+  mark {
+    color: var(--cl);
+  }
+  .text {
+    @include center(flex-start, center, column);
+    svg {
+      height: 40px;
+    }
+  }
+  &_content {
+    width: 100%;
+    @include center(center, space-between);
+    ul {
+      @include center;
+      gap: 120px;
+      li {
+        gap: 5px;
+        @include center(center, center, column);
+        h3 {
+          font-size: 18px;
+        }
+        a{
+          color: var(--gray-8);
+        }
+      }
+    }
+  }
+  &_nav {
+    width: 100%;
+    @include center(center, space-between);
+    h4{
+      font-weight: 400;
+    }
+    span{
+      @include center;
+      gap: 20px;
+      h3{
+        height: 35px;
+        width: 35px;
+        border-radius: 50%;
+        color: var(--gray-8);
+        box-shadow: 0 0 0 2px var(--gray-7);
+        @include center;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+@import "media";

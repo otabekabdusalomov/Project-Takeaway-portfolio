@@ -1,0 +1,207 @@
+@media screen and (max-width: 758px) {
+  .navbar {
+    padding: 10px 5vw;
+    height: 50px;
+    &_logo {
+      @include center;
+      a {
+        color: #fff;
+        svg {
+          height: 35px;
+          path {
+            stroke: var(--cl);
+          }
+        }
+      }
+    }
+    ul {
+      position: fixed;
+      padding: 20px 10px;
+      top: 0;
+      left: -220px;
+      min-height: 100vh;
+      width: 220px;
+      background: var(--gray-1);
+      @include center(flex-start, flex-start, column);
+      gap: 15px;
+      z-index: 4;
+      li {
+        a {
+          padding: 5px 10px;
+          &::before {
+            top: 0;
+            left: 0;
+            width: 2.5px;
+            height: 0;
+          }
+          &.router-link-exact-active,
+          &:hover {
+            &::before {
+              width: 2.5px;
+              height: 100%;
+            }
+          }
+        }
+      }
+    }
+    ul.nav {
+      left: 0;
+    }
+    .bar {
+      display: flex;
+      color: #fff;
+      cursor: pointer;
+      transition: 0.5s;
+    }
+    .close {
+      position: fixed;
+      top: 0;
+      right: -100vw;
+      min-height: 100vh;
+      width: calc(100vw - 220px);
+      display: flex;
+      cursor: pointer;
+      z-index: 4;
+    }
+    .close.nav {
+      right: 0;
+    }
+  }
+  .navbar.active {
+    a,
+    .bar {
+      color: #000 !important;
+    }
+  }
+
+  .home {
+    padding: 0 0;
+    background: url(../assets/home-bg.jpg) no-repeat left center;
+    background-size: cover;
+    &_text {
+      padding: 15px 10px;
+      width: 100%;
+      color: #fff;
+      backdrop-filter: blur(5px);
+      h2 {
+        font-weight: 400;
+        font-size: 2em;
+      }
+      p{
+        color: var(--gray-8) !important;
+        font-weight: 400;
+      }
+    }
+    img {
+      width: 70%;
+      display: none;
+    }
+
+    &.products {
+      @include center(center, center, column);
+      background: #fff;
+      h2,
+      p {
+        color: #000;
+        text-align: center;
+      }
+      .btn {
+        align-self: center;
+      }
+      img {
+        display: block;
+        width: 70%;
+      }
+    }
+  }
+
+  .section1 {
+    h2 {
+      font-size: 2em;
+    }
+    ul {
+      gap: 30px;
+      flex-direction: column;
+      li {
+        width: 100%;
+        &:nth-child(2) {
+          &::before,
+          &::after {
+            top: 0;
+            left: 50%;
+            right: auto;
+            height: 30px;
+            width: 2.5px;
+            transform: translate(50%, -100%);
+          }
+          &::after {
+            top: auto;
+            bottom: 0;
+            transform: translate(50%, 100%);
+          }
+        }
+      }
+    }
+  }
+
+  .menu {
+    h2 {
+      font-size: 2em;
+    }
+    ul {
+      gap: 10px;
+      grid-template-columns: 1fr;
+      li {
+        flex-direction: column;
+      }
+    }
+  }
+
+  .support {
+    min-height: auto;
+    gap: 10px;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    &_content {
+      width: 100%;
+      height: 300px;
+      background: url(../assets/sec5-bg.png) top/cover no-repeat;
+
+      h2 {
+        font-size: 1.5em;
+        width: 80%;
+      }
+      .btn {
+        margin-top: 10px;
+        color: #1b9097;
+      }
+    }
+    img {
+      display: none;
+    }
+  }
+
+  .footer {
+    &_content {
+      gap: 20px;
+      @include center(flex-start, center, column);
+      .text svg {
+        height: 35px;
+        path {
+          stroke: var(--cl);
+        }
+      }
+      ul {
+        gap: 20px;
+        @include center(flex-start, center, column);
+        li{
+          align-items: flex-start;
+        }
+      }
+    }
+    &_nav{
+      gap: 10px;
+      flex-direction: column;
+    }
+  }
+}
